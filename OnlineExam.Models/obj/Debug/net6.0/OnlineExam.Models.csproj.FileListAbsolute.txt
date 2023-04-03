@@ -1,0 +1,12 @@
+C:\Users\user\source\repos\OnlineExamSystem\OnlineExam.Models\bin\Debug\net6.0\OnlineExam.Models.deps.json
+C:\Users\user\source\repos\OnlineExamSystem\OnlineExam.Models\bin\Debug\net6.0\OnlineExam.Models.dll
+C:\Users\user\source\repos\OnlineExamSystem\OnlineExam.Models\bin\Debug\net6.0\OnlineExam.Models.pdb
+C:\Users\user\source\repos\OnlineExamSystem\OnlineExam.Models\obj\Debug\net6.0\OnlineExam.Models.csproj.AssemblyReference.cache
+C:\Users\user\source\repos\OnlineExamSystem\OnlineExam.Models\obj\Debug\net6.0\OnlineExam.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\source\repos\OnlineExamSystem\OnlineExam.Models\obj\Debug\net6.0\OnlineExam.Models.AssemblyInfoInputs.cache
+C:\Users\user\source\repos\OnlineExamSystem\OnlineExam.Models\obj\Debug\net6.0\OnlineExam.Models.AssemblyInfo.cs
+C:\Users\user\source\repos\OnlineExamSystem\OnlineExam.Models\obj\Debug\net6.0\OnlineExam.Models.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\OnlineExamSystem\OnlineExam.Models\obj\Debug\net6.0\OnlineExam.Models.dll
+C:\Users\user\source\repos\OnlineExamSystem\OnlineExam.Models\obj\Debug\net6.0\refint\OnlineExam.Models.dll
+C:\Users\user\source\repos\OnlineExamSystem\OnlineExam.Models\obj\Debug\net6.0\OnlineExam.Models.pdb
+C:\Users\user\source\repos\OnlineExamSystem\OnlineExam.Models\obj\Debug\net6.0\ref\OnlineExam.Models.dll
