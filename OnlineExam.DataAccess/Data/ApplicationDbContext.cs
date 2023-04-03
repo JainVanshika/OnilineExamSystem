@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using OnlineExam.Models;
 
 namespace OnlineExamination.Data
 {
@@ -9,5 +10,6 @@ namespace OnlineExamination.Data
         {
 
         }
+        public DbSet<Category> Categories { get; set; }
     }
 }
