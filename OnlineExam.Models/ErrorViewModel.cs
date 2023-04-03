@@ -1,4 +1,4 @@
-namespace OnlineExamination.Models
+namespace OnlineExam.Models
 {
     public class ErrorViewModel
     {

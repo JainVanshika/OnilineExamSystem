@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using OnlineExamination.Models;
+using OnlineExam.Models;
 using System.Diagnostics;
 
-namespace OnlineExamination.Controllers
+namespace OnlineExamination.Areas.Student.Controllers
 {
     public class HomeController : Controller
     {

@@ -9,6 +9,7 @@ namespace OnlineExam.DataAccess.Repository.IRepository
     public interface IUnitOfWork
     {
         ICategoryRepo Category { get; }
+        ISubjectRepo Subject { get; }
         void Save();
     }
 }

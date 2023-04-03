@@ -15,9 +15,12 @@ namespace OnlineExam.DataAccess.Repository
         {
             _context = context;
             Category=new CategoryRepo(_context);
+            Subject=new SubjectRepo(_context);
         }
 
         public ICategoryRepo Category { get; private set; }
+
+        public ISubjectRepo Subject{get;private set; }
 
         public void Save()
         {

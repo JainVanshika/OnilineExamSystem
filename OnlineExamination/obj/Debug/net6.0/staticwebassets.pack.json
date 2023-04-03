@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\OnlineExamination.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\user\\source\\repos\\OnlineExamSystem\\OnlineExamination\\wwwroot\\css\\bootswatchTheme.css",
+      "PackagePath": "staticwebassets\\css\\bootswatchTheme.css"
+    },
+    {
       "Id": "C:\\Users\\user\\source\\repos\\OnlineExamSystem\\OnlineExamination\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

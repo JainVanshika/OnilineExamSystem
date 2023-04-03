@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "jXEi4Y+XkMDuJjJxRPKihPGqkg7zKSuSlMIIJLenEtY=",
+  "Hash": "SImcg2g3HYdcZkqftVY+chHjJIEHJupxlcN1iWmn4T0=",
   "Source": "OnlineExamination",
   "BasePath": "_content/OnlineExamination",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\user\\source\\repos\\OnlineExamSystem\\OnlineExamination\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\OnlineExamination.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\user\\source\\repos\\OnlineExamSystem\\OnlineExamination\\wwwroot\\css\\bootswatchTheme.css",
+      "SourceId": "OnlineExamination",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\user\\source\\repos\\OnlineExamSystem\\OnlineExamination\\wwwroot\\",
+      "BasePath": "_content/OnlineExamination",
+      "RelativePath": "css/bootswatchTheme.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\bootswatchTheme.css"
     },
     {
       "Identity": "C:\\Users\\user\\source\\repos\\OnlineExamSystem\\OnlineExamination\\wwwroot\\css\\site.css",

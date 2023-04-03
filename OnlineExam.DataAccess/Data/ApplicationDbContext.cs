@@ -11,5 +11,6 @@ namespace OnlineExamination.Data
 
         }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Subject> Subjects { get; set; }
     }
 }
