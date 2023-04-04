@@ -1,0 +1,54 @@
+﻿@model OnlineExam.Models.ViewModel.SubjectVM
+
+<form method="post" asp-action="Upsert" enctype="multipart/form-data">
+    <input asp-for="Subject.Id" hidden />
+
+    <div class="row">
+        <div class="col-10">
+            <div class="border p-3 mt-4 row">
+                <div class="col-12 pb-2">
+                    <h2 class="text-primary">@(Model.Subject.Id != 0 ? "Update" : "Create") Subject</h2>
+                    <hr />
+                </div>
+                @*        <div asp-validation-summary="All"></div>
+                *@
+                <div class="mb-3">
+                    <label asp-for="Subject.SubjectName"></label>
+                    <input asp-for="Subject.SubjectName" class="form-control">
+                    <span asp-validation-for="Subject.SubjectName" class="text-danger"></span>
+                </div>
+                <div class="mb-3 ">
+                    <label asp-for="Subject.CategoryId"> Category</label>
+                    <select asp-for="Subject.CategoryId" asp-items="@Model.CategoryList" class="form-select">
+                        <option disabled selected>--Select Category--</option>
+                    </select>
+                    <span asp-validation-for="Subject.CategoryId" class="text-danger"></span>
+                </div>
+                
+                <div class="col-12">
+                    @if (Model.Subject.Id != 0)
+                    {
+                        <button type="submit" class="btn btn-primary" style="width:150px">Update</button>
+
+                    }
+                    else
+                    {
+                        <button type="submit" class="btn btn-primary" style="width:150px">Create</button>
+
+                    }
+                    <a asp-controller="Subject" asp-action="Index" class="btn btn-secondary" style="width:150px">
+                        Back to List
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</form>
+@*this is for client side validation*@
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial.cshtml" />
+    }
+}

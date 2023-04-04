@@ -10,6 +10,7 @@ namespace OnlineExam.DataAccess.Repository.IRepository
     {
         ICategoryRepo Category { get; }
         ISubjectRepo Subject { get; }
+        IExamRepo ExamDetail { get; }
         void Save();
     }
 }

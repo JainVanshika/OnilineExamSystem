@@ -281,3 +281,5 @@ C:\Users\user\source\repos\OnlineExamSystem\OnlineExamination\obj\Debug\net6.0\r
 C:\Users\user\source\repos\OnlineExamSystem\OnlineExamination\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
 C:\Users\user\source\repos\OnlineExamSystem\OnlineExamination\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\user\source\repos\OnlineExamSystem\OnlineExamination\obj\Debug\net6.0\OnlineExamination.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\user\source\repos\OnlineExamSystem\OnlineExamination\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\user\source\repos\OnlineExamSystem\OnlineExamination\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll

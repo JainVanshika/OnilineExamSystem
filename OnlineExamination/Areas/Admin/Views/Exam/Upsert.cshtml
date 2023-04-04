@@ -1,0 +1,89 @@
+﻿@model OnlineExam.Models.ViewModel.ExamVM
+
+<form method="post" asp-action="Upsert" enctype="multipart/form-data">
+    <input asp-for="ExamDetails.ExamId" hidden/>
+
+    <div class="row">
+        <div class="col-10">
+            <div class="border p-3 mt-4 row">
+                <div class="col-12 pb-2">
+                    <h2 class="text-primary">@(Model.ExamDetails.ExamId != 0 ? "Update" : "Create") Exam</h2>
+                    <hr />
+                </div>
+                @*        <div asp-validation-summary="All"></div>
+                *@
+                <div class="mb-3 col-6">
+                    <label asp-for="ExamDetails.CategoryId"> Category Name</label>
+                    <select asp-for="ExamDetails.CategoryId" asp-items="@Model.CategoryList" class="form-select">
+                        <option disabled selected>--Select Category--</option>
+                    </select>
+                    <span asp-validation-for="ExamDetails.CategoryId" class="text-danger"></span>
+                </div>
+                <div class="mb-3 col-6">
+                    <label asp-for="ExamDetails.SubjectId">Subject Name</label>
+                    <select asp-for="ExamDetails.SubjectId" asp-items="@Model.SubjectList" class="form-select">
+                        <option disabled selected>--Select CoverType--</option>
+                    </select>
+                    <span asp-validation-for="ExamDetails.SubjectId" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="ExamDetails.Name"></label>
+                    <input asp-for="ExamDetails.Name" class="form-control">
+                    <span asp-validation-for="ExamDetails.Name" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="ExamDetails.Description"></label>
+                    <textarea asp-for="ExamDetails.Description" rows="3" class="form-control"></textarea>
+                    <span asp-validation-for="ExamDetails.Description" class="text-danger"></span>
+                </div>
+                <div class="mb-3 col-6">
+                    <label asp-for="ExamDetails.ExamDate"></label>
+                    <input asp-for="ExamDetails.ExamDate" class="form-control">
+                    <span asp-validation-for="ExamDetails.ExamDate" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3 col-6">
+                    <label asp-for="ExamDetails.ExamDuration"></label>
+                    <input asp-for="ExamDetails.ExamDuration" class="form-control">
+                    <span asp-validation-for="ExamDetails.ExamDuration" class="text-danger"></span>
+                </div>
+                <div class="mb-3 col-6">
+                    <label asp-for="ExamDetails.PassingMark"></label>
+                    <input asp-for="ExamDetails.PassingMark" class="form-control">
+                    <span asp-validation-for="ExamDetails.PassingMark" class="text-danger"></span>
+                </div>
+                <div class="mb-3 col-6">
+                    <label asp-for="ExamDetails.TotalMark"></label>
+                    <input asp-for="ExamDetails.TotalMark" class="form-control">
+                    <span asp-validation-for="ExamDetails.TotalMark" class="text-danger"></span>
+                </div>
+                
+                <div class="col-12">
+                    @if (Model.ExamDetails.ExamId != 0)
+                    {
+                            <button type="submit" class="btn btn-primary" style="width:150px">Update</button>
+
+                    }
+                    else
+                    {
+                            <button type="submit" onclick="return ValidateInput()" class="btn btn-primary" style="width:150px">Create</button>
+
+                    }
+                    <a asp-controller="Exam" asp-action="Index" class="btn btn-secondary" style="width:150px">
+                        Back to List
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
+
+</form>
+@*this is for client side validation*@
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial.cshtml" />
+    }
+        
+}

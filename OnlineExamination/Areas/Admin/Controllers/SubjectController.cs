@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.CodeAnalysis.Operations;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.CodeAnalysis.VisualBasic;
 using OnlineExam.DataAccess.Repository.IRepository;
 using OnlineExam.Models;
-using System.ComponentModel;
+using OnlineExam.Models.ViewModel;
+//using System.Web.Mvc;
 
 namespace OnlineExamination.Areas.Admin.Controllers
 {
@@ -11,66 +13,67 @@ namespace OnlineExamination.Areas.Admin.Controllers
     {
         //dependency injection
         private readonly IUnitOfWork _unitOfWork;
-        public SubjectController(IUnitOfWork unitOfWork)
+        private readonly IHostEnvironment _hostEnvironment;
+        public SubjectController(IUnitOfWork unitOfWork, IHostEnvironment hostEnvironment)
         {
             _unitOfWork = unitOfWork;
+            _hostEnvironment = hostEnvironment;
         }
-        //category list
+        //subject list
         public IActionResult Index()
         {
-            IEnumerable<Subject> objSubjectList = _unitOfWork.Subject.GetAll();
+            IEnumerable<Subject> objSubjectList = _unitOfWork.Subject.GetAll(includeProperties:"Category");
             return View(objSubjectList);
         }
-        //get category
-        public IActionResult Create()
+        //upsert category
+        public IActionResult Upsert(int? id)
         {
-            return View();
+            SubjectVM subjectVM = new()
+            {
+                Subject =new(),
+                CategoryList = _unitOfWork.Category.GetAll().Select(u => new SelectListItem
+                {
+                    Text = u.CategoryName,
+                    Value = u.Id.ToString(),
+                }),
+            };
+            if(id==null||id==0)
+            {
+                return View(subjectVM);
+            }
+            else
+            {
+                subjectVM.Subject=_unitOfWork.Subject.GetFirstOrDefault(u => u.Id==id);
+                return View(subjectVM);
+            }
         }
-        //post category
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Subject obj)
+        public IActionResult Upsert(SubjectVM obj)
         {
             if (ModelState.IsValid)
             {
-                _unitOfWork.Subject.Add(obj);
+                if (obj.Subject.Id == 0)
+                {
+                    _unitOfWork.Subject.Add(obj.Subject);
+                    TempData["success"] = "Subject created successfully.";
+                }
+                else
+                {
+                    _unitOfWork.Subject.Update(obj.Subject);
+                    TempData["success"] = "Subject updated successfully.";
+                }
                 _unitOfWork.Save();
-                TempData["success"] = "Subject created successfully";
                 return RedirectToAction("Index");
             }
             return View(obj);
         }
-        //edit
-        public IActionResult Edit(int? id)
-        {
-            if (id == null || id == 0)
-            {
-                return NotFound();
-            }
-            var SubjectDBedit = _unitOfWork.Subject.GetFirstOrDefault(u => u.Id == id);
-            if (SubjectDBedit == null)
-            {
-                return NotFound();
-            }
-            return View(SubjectDBedit);
-        }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Edit(Subject subject)
-        {
-            if (ModelState.IsValid)
-            {
-                _unitOfWork.Subject.Update(subject);
-                _unitOfWork.Save();
-                TempData["success"] = "Subject edited successfully";
-                return RedirectToAction("Index");
-            }
-            return View(subject);
-        }
+        
         //delete
         public IActionResult Delete(int? id)
         {
-            if (id == null || id == 0)
+            if (id==null||id == 0)
             {
                 return NotFound();
             }
