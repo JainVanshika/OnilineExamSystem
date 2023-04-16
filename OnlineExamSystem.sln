@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineExamination", "OnlineExamination\OnlineExamination.csproj", "{2696D421-7B01-4904-8DE1-88B70DED61F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineExamination", "OnlineExamination\OnlineExamination.csproj", "{2696D421-7B01-4904-8DE1-88B70DED61F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineExam.Models", "OnlineExam.Models\OnlineExam.Models.csproj", "{FD6F9251-2AAE-4278-8540-42516B194B44}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineExam.Models", "OnlineExam.Models\OnlineExam.Models.csproj", "{FD6F9251-2AAE-4278-8540-42516B194B44}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineExam.DataAccess", "OnlineExam.DataAccess\OnlineExam.DataAccess.csproj", "{6CAFC3BC-AB8C-4F55-A432-D9ECC570C4E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineExam.DataAccess", "OnlineExam.DataAccess\OnlineExam.DataAccess.csproj", "{6CAFC3BC-AB8C-4F55-A432-D9ECC570C4E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineExam.Utility", "OnlineExam.Utility\OnlineExam.Utility.csproj", "{5762E5FF-AA62-4AE8-BE11-B865584EF18C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{6CAFC3BC-AB8C-4F55-A432-D9ECC570C4E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CAFC3BC-AB8C-4F55-A432-D9ECC570C4E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6CAFC3BC-AB8C-4F55-A432-D9ECC570C4E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5762E5FF-AA62-4AE8-BE11-B865584EF18C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5762E5FF-AA62-4AE8-BE11-B865584EF18C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5762E5FF-AA62-4AE8-BE11-B865584EF18C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5762E5FF-AA62-4AE8-BE11-B865584EF18C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

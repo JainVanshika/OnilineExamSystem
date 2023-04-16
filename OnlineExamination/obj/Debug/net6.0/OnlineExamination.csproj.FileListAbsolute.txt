@@ -283,3 +283,7 @@ C:\Users\user\source\repos\OnlineExamSystem\OnlineExamination\bin\Debug\net6.0\M
 C:\Users\user\source\repos\OnlineExamSystem\OnlineExamination\obj\Debug\net6.0\OnlineExamination.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\user\source\repos\OnlineExamSystem\OnlineExamination\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\user\source\repos\OnlineExamSystem\OnlineExamination\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\Users\user\source\repos\OnlineExamSystem\OnlineExamination\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.UI.dll
+C:\Users\user\source\repos\OnlineExamSystem\OnlineExamination\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Embedded.dll
+C:\Users\user\source\repos\OnlineExamSystem\OnlineExamination\bin\Debug\net6.0\OnlineExam.Utility.dll
+C:\Users\user\source\repos\OnlineExamSystem\OnlineExamination\bin\Debug\net6.0\OnlineExam.Utility.pdb

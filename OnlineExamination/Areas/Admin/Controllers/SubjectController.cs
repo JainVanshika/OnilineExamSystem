@@ -8,7 +8,7 @@ using OnlineExam.Models.ViewModel;
 
 namespace OnlineExamination.Areas.Admin.Controllers
 {
-    //[Area("Admin")]
+    [Area("Admin")]
     public class SubjectController : Controller
     {
         //dependency injection

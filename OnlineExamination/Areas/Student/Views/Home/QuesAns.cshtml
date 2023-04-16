@@ -1,0 +1,88 @@
+﻿@*@model IEnumerable<Questions>*@
+@*@using OnlineExam.Models.ViewModel*@
+@model OnlineExam.Models.ViewModel.QuesResultVM
+@*@{
+    string SelectedOption=null;
+    //int totalMarks = 0; // Variable to keep track of total marks
+}*@
+
+<form method="post" asp-action="QuesAns" enctype="multipart/form-data">
+<div class="row pb-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Answer all the questions</h2>
+        </div>
+        <hr />
+    </div>
+    <br />
+    <br />
+    @foreach (var exam in Model.Questions)
+    {
+        <div class="col-lg-12 col-md-12">
+            <div class="row p-2">
+                <div class="card">
+
+                    <div class="card-body">
+                        <fieldset class="form-group">
+                            <div class="pl-1">
+                                <h5 class="card-title  h5text-primary"><strong>Ques: @exam.Ques</strong></h5>
+                            </div>
+                            <div class="pl-1">
+                                <p>Marked out of:<b>@exam.MarksPerQues</b></p>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exam" id="@exam.OptionA" value="@exam.OptionA" asp-for="SelectedOption">
+                                <label class="form-check-label" asp-for="@exam.OptionA">@exam.OptionA</label>
+
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="@exam.Id" id="@exam.OptionB" value="@exam.OptionB" asp-for="SelectedOption">
+                                <label class="form-check-label" asp-for="@exam.OptionB">@exam.OptionB</label>
+
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="@exam.Id" id="@exam.OptionC" value="@exam.OptionC" asp-for="SelectedOption">
+                                <label class="form-check-label" asp-for="@exam.OptionC">@exam.OptionC</label>
+
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="@exam.Id" id="@exam.OptionD" value="@exam.OptionD" asp-for="SelectedOption">
+                                <label class="form-check-label" asp-for="@exam.OptionD">@exam.OptionD</label>
+                            </div>
+                        </fieldset>
+                        @*@if(Model.SelectedOption!=null && Model.SelectedOption==exam.Answer)
+                        {
+                             
+                            Model.ScoredMarks +=  exam.MarksPerQues;
+                            @if(Model.ScoredMarks<Model.ExamDetails.PassingMark)
+                            {
+                                Model.ResultStatus = "Pass";
+                            }
+                            else
+                            {
+                                Model.Result.ResultStatus = "Fail";
+                            }
+                        }*@
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    }
+    <button type="submit" class="btn btn-primary" onclick="displayRadioValue" style="width:150px">Submit</button>
+</div>
+</form>
+<script>
+    function displayRadioValue() {
+        var ele = document.getElementsByName('exam');
+
+        debugger;
+        for (i = 0; i < ele.length; i++) {
+            if (ele[i].checked)
+                document.getElementById("result").innerHTML
+                    = "exam: " + ele[i].value;
+        }
+    }
+</script>

@@ -6,6 +6,7 @@ using OnlineExam.Models.ViewModel;
 
 namespace OnlineExamination.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class ExamController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -83,5 +84,6 @@ namespace OnlineExamination.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
         }
+        
     }
 }

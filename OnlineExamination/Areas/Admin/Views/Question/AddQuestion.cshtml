@@ -1,0 +1,78 @@
+﻿@model OnlineExam.Models.ViewModel.QuestionVM
+
+<form method="post" asp-action="AddQuestion" enctype="multipart/form-data">
+    <input asp-for="Questions.Id" hidden />
+    @*<input asp-for="Questions.ExamsId" hidden/>*@
+    <div class="row">
+        <div class="col-10">
+            <div class="border p-3 mt-4 row">
+                <div class="col-12 pb-2">
+                    <h2 class="text-primary"> Add Question</h2>
+                    <hr />
+                </div>
+                @*        <div asp-validation-summary="All"></div>
+                *@
+                <div class="mb-3 col-6">
+                    <label asp-for="Questions.ExamsId"> Exam Name</label>
+                    <select asp-for="Questions.ExamsId" asp-items="@Model.ExamList" class="form-select">
+                        <option disabled selected>--Select Category--</option>
+                    </select>
+                    <span asp-validation-for="Questions.ExamsId" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Questions.Ques"></label>
+                    <input asp-for="Questions.Ques" class="form-control">
+                    <span asp-validation-for="Questions.Ques" class="text-danger"></span>
+                </div>
+                <div class="mb-3 col-6">
+                    <label asp-for="Questions.OptionA"></label>
+                    <input asp-for="Questions.OptionA" class="form-control">
+                    <span asp-validation-for="Questions.OptionA" class="text-danger"></span>
+                </div>
+                <div class="mb-3 col-6">
+                    <label asp-for="Questions.OptionB"></label>
+                    <input asp-for="Questions.OptionB" class="form-control">
+                    <span asp-validation-for="Questions.OptionB" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3 col-6">
+                    <label asp-for="Questions.OptionC"></label>
+                    <input asp-for="Questions.OptionC" class="form-control">
+                    <span asp-validation-for="Questions.OptionC" class="text-danger"></span>
+                </div>
+                <div class="mb-3 col-6">
+                    <label asp-for="Questions.OptionD"></label>
+                    <input asp-for="Questions.OptionD" class="form-control">
+                    <span asp-validation-for="Questions.OptionD" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Questions.Answer"></label>
+                    <input asp-for="Questions.Answer" class="form-control">
+                    <span asp-validation-for="Questions.Answer" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Questions.MarksPerQues"></label>
+                    <input asp-for="Questions.MarksPerQues" class="form-control">
+                    <span asp-validation-for="Questions.MarksPerQues" class="text-danger"></span>
+                </div>
+
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary" style="width:150px">Add</button>
+                    <a asp-controller="Question" asp-action="ExamQuestion" asp-route-id="@Model.Questions.ExamsId" class="btn btn-secondary" style="width:150px">
+                        Back to List
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</form>
+@*this is for client side validation*@
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial.cshtml" />
+    }
+
+}

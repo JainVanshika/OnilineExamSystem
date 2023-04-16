@@ -6,7 +6,7 @@ using System.ComponentModel;
 
 namespace OnlineExamination.Areas.Admin.Controllers
 {
-    //[Area("Admin")]
+    [Area("Admin")]
     public class CategoryController : Controller
     {
         //dependency injection

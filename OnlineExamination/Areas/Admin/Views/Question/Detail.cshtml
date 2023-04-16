@@ -1,0 +1,79 @@
+﻿@model Questions
+
+<form method="post" asp-action="Detail" enctype="multipart/form-data">
+    <input asp-for="Id" hidden />
+    @*<input asp-for="Questions.ExamsId" hidden/>*@
+    <div class="row">
+        <div class="col-10">
+            <div class="border p-3 mt-4 row">
+                <div class="col-12 pb-2">
+                    <h2 class="text-primary"> Details of the Question</h2>
+                    <hr />
+                </div>
+                @*        <div asp-validation-summary="All"></div>
+                *@
+                <div class="mb-3 col-6">
+                    <label asp-for="ExamsId"> Exam Id</label>
+                    <input asp-for="ExamsId" disabled class="form-select"></input>
+                    <span asp-validation-for="ExamsId" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Ques"></label>
+                    <input asp-for="Ques" disabled class="form-control">
+                    <span asp-validation-for="Ques" class="text-danger"></span>
+                </div>
+                <div class="mb-3 col-6">
+                    <label asp-for="OptionA"></label>
+                    <input asp-for="OptionA" disabled class="form-control">
+                    <span asp-validation-for="OptionA" class="text-danger"></span>
+                </div>
+                <div class="mb-3 col-6">
+                    <label asp-for="OptionB"></label>
+                    <input asp-for="OptionB" disabled class="form-control">
+                    <span asp-validation-for="OptionB" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3 col-6">
+                    <label asp-for="OptionC"></label>
+                    <input asp-for="OptionC" disabled class="form-control">
+                    <span asp-validation-for="OptionC" class="text-danger"></span>
+                </div>
+                <div class="mb-3 col-6">
+                    <label asp-for="OptionD"></label>
+                    <input asp-for="OptionD" disabled class="form-control">
+                    <span asp-validation-for="OptionD" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Answer"></label>
+                    <input asp-for="Answer" disabled class="form-control">
+                    <span asp-validation-for="Answer" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="MarksPerQues"></label>
+                    <input asp-for="MarksPerQues" disabled class="form-control">
+                    <span asp-validation-for="MarksPerQues" class="text-danger"></span>
+                </div>
+
+                <div class="col-12">
+                    @*<a asp-controller="Question" asp-action="ExamQuestion" asp-route-id="@Model.ExamsId" class="btn btn-secondary" style="width:150px">
+                        Back to List
+                    </a>*@
+                        <a asp-controller="Question" asp-action="ExamQuestion" asp-route-id="@Model.ExamsId" class="btn btn-secondary" style="width:150px">
+                            Back to List
+                        </a>
+                   
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</form>
+@*this is for client side validation*@
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial.cshtml" />
+    }
+
+}

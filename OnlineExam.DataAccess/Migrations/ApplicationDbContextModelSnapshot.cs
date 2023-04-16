@@ -86,6 +86,10 @@ namespace OnlineExam.DataAccess.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -137,6 +141,8 @@ namespace OnlineExam.DataAccess.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -280,6 +286,90 @@ namespace OnlineExam.DataAccess.Migrations
                     b.ToTable("ExamDetails");
                 });
 
+            modelBuilder.Entity("OnlineExam.Models.Questions", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Answer")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ExamsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MarksPerQues")
+                        .HasColumnType("int");
+
+                    b.Property<string>("OptionA")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OptionB")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OptionC")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OptionD")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Ques")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ExamsId");
+
+                    b.ToTable("Questions");
+                });
+
+            modelBuilder.Entity("OnlineExam.Models.Result", b =>
+                {
+                    b.Property<int>("ResultId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ResultId"), 1L, 1);
+
+                    b.Property<string>("ApplicatinId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ApplicationId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ExamDetailsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("QuestionId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ResultStatus")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ScoredMarks")
+                        .HasColumnType("int");
+
+                    b.HasKey("ResultId");
+
+                    b.HasIndex("ApplicatinId");
+
+                    b.HasIndex("ExamDetailsId");
+
+                    b.HasIndex("QuestionId");
+
+                    b.ToTable("results");
+                });
+
             modelBuilder.Entity("OnlineExam.Models.Subject", b =>
                 {
                     b.Property<int>("Id")
@@ -300,6 +390,23 @@ namespace OnlineExam.DataAccess.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Subjects");
+                });
+
+            modelBuilder.Entity("OnlineExam.Models.ApplicationUser", b =>
+                {
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+
+                    b.Property<string>("CollegeName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasDiscriminator().HasValue("ApplicationUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -370,6 +477,42 @@ namespace OnlineExam.DataAccess.Migrations
                     b.Navigation("Category");
 
                     b.Navigation("Subject");
+                });
+
+            modelBuilder.Entity("OnlineExam.Models.Questions", b =>
+                {
+                    b.HasOne("OnlineExam.Models.ExamDetails", "ExamDetails")
+                        .WithMany()
+                        .HasForeignKey("ExamsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ExamDetails");
+                });
+
+            modelBuilder.Entity("OnlineExam.Models.Result", b =>
+                {
+                    b.HasOne("OnlineExam.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("ApplicatinId");
+
+                    b.HasOne("OnlineExam.Models.ExamDetails", "ExamDetails")
+                        .WithMany()
+                        .HasForeignKey("ExamDetailsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("OnlineExam.Models.Questions", "Questions")
+                        .WithMany()
+                        .HasForeignKey("QuestionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ApplicationUser");
+
+                    b.Navigation("ExamDetails");
+
+                    b.Navigation("Questions");
                 });
 
             modelBuilder.Entity("OnlineExam.Models.Subject", b =>
